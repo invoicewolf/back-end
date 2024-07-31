@@ -1,0 +1,39 @@
+services:
+  invoicely-database:
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=postgres
+    container_name: invoicely-data
+    volumes:
+      - ./databases/postgresql-data:/var/lib/postgresql/data
+    ports:
+      - '127.0.0.1:5434:5432'
+
+  invoicely-logs:
+    image: elasticsearch:8.14.3
+    container_name: invoicely-logs
+    ports:
+      - "0.0.0.0:9200:9200"
+      - "127.0.0.1:9300:9300"
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=true
+      - ELASTIC_PASSWORD=${LOGS_PASSWORD}
+    volumes:
+      - ./databases/elasticsearch-data:/usr/share/elasticsearch/data
+
+  invoicely-backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: no
+    env_file: ./.env.docker
+    container_name: invoicely-backend
+    volumes:
+      - ./backend-data:/usr/backend-data
+    ports:
+      - '0.0.0.0:3000:3000'
+    links:
+      - invoicely-database
+      - invoicely-logs
