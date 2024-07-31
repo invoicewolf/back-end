@@ -1,6 +1,5 @@
 FROM node:20 AS base
 
-ENV NODE_ENV production
 ENV PNPM_HOME=/usr/local/bin
 
 FROM base AS build
@@ -21,6 +20,9 @@ RUN pnpm run build
 RUN pnpm prune
 
 FROM base AS prod
+
+ENV NODE_ENV production
+
 WORKDIR /app
 
 COPY --from=build /app/dist ./dist
