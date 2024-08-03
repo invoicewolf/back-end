@@ -14,8 +14,8 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule, new ExpressAdapter(server));
 
   const config = new DocumentBuilder()
-    .setTitle('Invoicely API')
-    .setDescription('The Invoicely API description')
+    .setTitle('InvoiceWolf API')
+    .setDescription('The InvoiceWolf API description')
     .setVersion('1.0')
     .addTag('users')
     .addTag('companies')
@@ -33,7 +33,7 @@ async function bootstrap() {
 
   await app.init();
 
-  http.createServer(server).listen(5000);
+  http.createServer(server).listen(80);
 
   if (process.env.PRIVATE_KEY_PATH && process.env.CERTIFICATE_PATH) {
     const httpsOptions = {
@@ -41,7 +41,7 @@ async function bootstrap() {
       cert: fs.readFileSync(process.env.CERTIFICATE_PATH),
     };
 
-    https.createServer(httpsOptions, server).listen(5001);
+    https.createServer(httpsOptions, server).listen(443);
   }
 }
 

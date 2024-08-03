@@ -37,10 +37,10 @@ async function main() {
   });
 
   const admin = await prisma.user.upsert({
-    where: { id: 'Sitgo4ZpfrSu2EfAkO8Uu9SqEoe2' },
+    where: { id: '9YsRjfWMndNguBpMX1zkDugrrC93' },
     update: {},
     create: {
-      id: 'Sitgo4ZpfrSu2EfAkO8Uu9SqEoe2',
+      id: '9YsRjfWMndNguBpMX1zkDugrrC93',
       firstName: fakerNL.person.firstName(),
       lastName: fakerNL.person.lastName(),
       email: 'admin@example.com',
@@ -52,15 +52,15 @@ async function main() {
     update: {},
     create: {
       companyId: 0,
-      userId: 'Sitgo4ZpfrSu2EfAkO8Uu9SqEoe2',
+      userId: '9YsRjfWMndNguBpMX1zkDugrrC93',
     },
   });
 
   const user = await prisma.user.upsert({
-    where: { id: 'WZJQBC4exdhdbWfG5J4xoDE2Mco2' },
+    where: { id: '88gGjEWOTmWmzLwthr0nhYzAQ1v2' },
     update: {},
     create: {
-      id: 'WZJQBC4exdhdbWfG5J4xoDE2Mco2',
+      id: '88gGjEWOTmWmzLwthr0nhYzAQ1v2',
       firstName: fakerNL.person.firstName(),
       lastName: fakerNL.person.lastName(),
       email: 'user@example.com',
@@ -72,7 +72,7 @@ async function main() {
     update: {},
     create: {
       companyId: 0,
-      userId: 'WZJQBC4exdhdbWfG5J4xoDE2Mco2',
+      userId: '88gGjEWOTmWmzLwthr0nhYzAQ1v2',
     },
   });
 

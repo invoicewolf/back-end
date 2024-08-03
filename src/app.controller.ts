@@ -11,7 +11,7 @@ export class AppController {
 
   @Get('/')
   getHello() {
-    return 'Invoicely API 1.0.0';
+    return 'InvoiceWolf API 1.0.0';
   }
 
   @Get('/zip-code')
@@ -24,7 +24,7 @@ export class AppController {
     return this.appService.getZipCode(zipCode, houseNumber);
   }
 
-  @Get('/assets/bold')
+  @Get('/fonts/bold')
   @ApiOperation({ operationId: 'getBoldFont' })
   async getBoldFont() {
     const file = createReadStream(
@@ -33,7 +33,7 @@ export class AppController {
     return new StreamableFile(file, { type: 'font/ttf' });
   }
 
-  @Get('/assets/regular')
+  @Get('/fonts/regular')
   @ApiOperation({ operationId: 'getRegularFont' })
   async getRegularFont() {
     const file = createReadStream(
