@@ -38,3 +38,6 @@ services:
     links:
       - invoicewolf-database
       - invoicewolf-logs
+    depends_on:
+      - invoicewolf-database
+      - invoicewolf-logs

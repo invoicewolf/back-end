@@ -28,7 +28,7 @@ export class AppController {
   @ApiOperation({ operationId: 'getBoldFont' })
   async getBoldFont() {
     const file = createReadStream(
-      join(process.cwd(), 'src/assets/Roboto-Bold.ttf'),
+      join(process.cwd(), '/dist/src/assets/Roboto-Bold.ttf'),
     );
     return new StreamableFile(file, { type: 'font/ttf' });
   }
@@ -37,7 +37,7 @@ export class AppController {
   @ApiOperation({ operationId: 'getRegularFont' })
   async getRegularFont() {
     const file = createReadStream(
-      join(process.cwd(), 'src/assets/Roboto-Regular.ttf'),
+      join(process.cwd(), '/dist/src/assets/Roboto-Regular.ttf'),
     );
     return new StreamableFile(file, { type: 'font/ttf' });
   }
