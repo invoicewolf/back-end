@@ -17,7 +17,7 @@ export class AppService {
       return new ZipCodeDto({ ...data, country: 'Nederland' });
     }
 
-    return new NotFoundException();
+    throw new NotFoundException();
   }
 
   async getBoldFont() {

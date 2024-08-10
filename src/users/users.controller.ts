@@ -5,7 +5,6 @@ import {
   Get,
   Post,
   Put,
-  Req,
   UseGuards,
   ValidationPipe,
 } from '@nestjs/common';
@@ -19,8 +18,10 @@ import {
 import { FirebaseService } from '@speakbox/nestjs-firebase-admin';
 import { CreateUserDto } from './dto/create-user.dto';
 import { ProfileDto } from './dto/profile.dto';
+import { RequestUserDto } from './dto/request-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { UserDto } from './dto/user.dto';
+import { User } from './user.decorator';
 import { UsersService } from './users.service';
 
 @ApiBearerAuth('jwt')
@@ -39,11 +40,11 @@ export class UsersController {
     operationId: 'createUser',
   })
   createUser(
-    @Req() request: Request,
+    @User() requestUser: RequestUserDto,
     @Body(new ValidationPipe()) user: CreateUserDto,
   ) {
     this.firebaseService.auth
-      .getUserByEmail(request['user'].email)
+      .getUserByEmail(requestUser.email)
       .then((user) => {
         return this.firebaseService.auth.setCustomUserClaims(user.uid, {
           roles: ['user'],
@@ -61,12 +62,10 @@ export class UsersController {
   @ApiOperation({
     operationId: 'deleteCurrentUser',
   })
-  deleteCurrentUser(@Req() request: Request) {
-    const requestUser = request['user'].user_id;
+  deleteCurrentUser(@User() requestUser: RequestUserDto) {
+    this.firebaseService.auth.deleteUser(requestUser.user_id);
 
-    this.firebaseService.auth.deleteUser(requestUser);
-
-    return this.usersService.deleteUser(requestUser);
+    return this.usersService.deleteUser(requestUser.user_id);
   }
 
   @Put('/me')
@@ -75,12 +74,10 @@ export class UsersController {
     operationId: 'updateCurrentUser',
   })
   updateCurrentUser(
-    @Req() request: Request,
+    @User() requestUser: RequestUserDto,
     @Body(new ValidationPipe()) user: UpdateUserDto,
   ) {
-    const requestUser = request['user'].user_id;
-
-    return this.usersService.updateUser(requestUser, user);
+    return this.usersService.updateUser(requestUser.user_id, user);
   }
 
   @Get('/me')
@@ -88,10 +85,8 @@ export class UsersController {
   @ApiOperation({
     operationId: 'getCurrentUser',
   })
-  getCurrentUser(@Req() request: Request) {
-    const requestUser = request['user'].user_id;
-
-    return this.usersService.findUser(requestUser);
+  getCurrentUser(@User() requestUser: RequestUserDto) {
+    return this.usersService.findUser(requestUser.user_id);
   }
 
   @Get('/me/profile')
@@ -99,9 +94,7 @@ export class UsersController {
   @ApiOperation({
     operationId: 'getCurrentUserProfile',
   })
-  getProfile(@Req() request: Request) {
-    const userId = request['user'].user_id;
-
-    return this.usersService.getProfile(userId);
+  getProfile(@User() requestUser: RequestUserDto) {
+    return this.usersService.getProfile(requestUser.user_id);
   }
 }

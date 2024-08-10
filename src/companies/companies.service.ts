@@ -5,7 +5,6 @@ import {
   UnauthorizedException,
 } from '@nestjs/common';
 import { CipherService } from '../cipher/cipher.service';
-import { Role } from '../model/role.enum';
 import { PrismaService } from '../prisma/prisma.service';
 import { CreateCompanyUserDto } from './dto/create-company-user.dto';
 import { CreateCompanyDto } from './dto/create-company.dto';
@@ -56,14 +55,7 @@ export class CompaniesService {
     });
   }
 
-  async createCompanyDetails(
-    company: CreateCompanyDto,
-    requestUser: {
-      user_id: string;
-      email: string;
-      roles: Role[];
-    },
-  ) {
+  async createCompanyDetails(company: CreateCompanyDto, userId: string) {
     const newCompany = await this.prisma.company.create({
       data: {
         companyName: company.companyName,
@@ -81,7 +73,7 @@ export class CompaniesService {
 
     const companyUser = await this.prisma.companyUser.create({
       data: {
-        userId: requestUser.user_id,
+        userId: userId,
         companyId: newCompany.id,
       },
     });

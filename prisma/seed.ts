@@ -1,5 +1,6 @@
 import { PrismaClient } from '@prisma/client';
 import { fakerNL } from '@faker-js/faker';
+import { FirebaseService } from '@speakbox/nestjs-firebase-admin';
 import { CipherService } from '../src/cipher/cipher.service';
 
 const prisma = new PrismaClient();
@@ -37,10 +38,10 @@ async function main() {
   });
 
   const admin = await prisma.user.upsert({
-    where: { id: '9YsRjfWMndNguBpMX1zkDugrrC93' },
+    where: { id: 'yq2ANJZdtFWXSUmisXGxUdxvoPr1' },
     update: {},
     create: {
-      id: '9YsRjfWMndNguBpMX1zkDugrrC93',
+      id: 'yq2ANJZdtFWXSUmisXGxUdxvoPr1',
       firstName: fakerNL.person.firstName(),
       lastName: fakerNL.person.lastName(),
       email: 'admin@example.com',
@@ -52,15 +53,15 @@ async function main() {
     update: {},
     create: {
       companyId: 0,
-      userId: '9YsRjfWMndNguBpMX1zkDugrrC93',
+      userId: admin.id,
     },
   });
 
   const user = await prisma.user.upsert({
-    where: { id: '88gGjEWOTmWmzLwthr0nhYzAQ1v2' },
+    where: { id: 'vyW0Q2vLKUfqG5p2c3KpovmW9p53' },
     update: {},
     create: {
-      id: '88gGjEWOTmWmzLwthr0nhYzAQ1v2',
+      id: 'vyW0Q2vLKUfqG5p2c3KpovmW9p53',
       firstName: fakerNL.person.firstName(),
       lastName: fakerNL.person.lastName(),
       email: 'user@example.com',
@@ -72,7 +73,7 @@ async function main() {
     update: {},
     create: {
       companyId: 0,
-      userId: '88gGjEWOTmWmzLwthr0nhYzAQ1v2',
+      userId: user.id,
     },
   });
 

@@ -6,7 +6,6 @@ import {
   Param,
   Post,
   Put,
-  Req,
   UseGuards,
   ValidationPipe,
 } from '@nestjs/common';
@@ -21,6 +20,8 @@ import { FirebaseService } from '@speakbox/nestjs-firebase-admin';
 import { Roles } from '../auth/role.decorator';
 import { RoleGuard } from '../auth/role.guard';
 import { Role } from '../model/role.enum';
+import { RequestUserDto } from '../users/dto/request-user.dto';
+import { User } from '../users/user.decorator';
 import { CompaniesService } from './companies.service';
 import { CompanyUserDto } from './dto/company-user.dto';
 import { CompanyDto } from './dto/company.dto';
@@ -47,11 +48,11 @@ export class CompaniesController {
     operationId: 'createCompany',
   })
   createCompany(
-    @Req() request: Request,
+    @User() requestUser: RequestUserDto,
     @Body(new ValidationPipe()) company: CreateCompanyDto,
   ) {
     this.firebaseService.auth
-      .getUserByEmail(request['user'].email)
+      .getUserByEmail(requestUser.email)
       .then((user) => {
         const currentCustomClaims = user.customClaims;
 
@@ -68,7 +69,10 @@ export class CompaniesController {
         console.error(e);
       });
 
-    return this.companiesService.createCompanyDetails(company, request['user']);
+    return this.companiesService.createCompanyDetails(
+      company,
+      requestUser.user_id,
+    );
   }
 
   @UseGuards(RoleGuard)
@@ -78,10 +82,8 @@ export class CompaniesController {
   @ApiOperation({
     operationId: 'getCurrentCompany',
   })
-  getCurrentCompany(@Req() request: Request) {
-    const userId = request['user'].user_id;
-
-    return this.companiesService.getCompanyDetails(userId);
+  getCurrentCompany(@User() requestUser: RequestUserDto) {
+    return this.companiesService.getCompanyDetails(requestUser.user_id);
   }
 
   @UseGuards(RoleGuard)
@@ -92,12 +94,13 @@ export class CompaniesController {
     operationId: 'updateCurrentCompany',
   })
   updateCurrentCompany(
-    @Req() request: Request,
+    @User() requestUser: RequestUserDto,
     @Body(new ValidationPipe()) companyDetails: UpdateCompanyDto,
   ) {
-    const userId = request['user'].user_id;
-
-    return this.companiesService.updateCompanyDetails(companyDetails, userId);
+    return this.companiesService.updateCompanyDetails(
+      companyDetails,
+      requestUser.user_id,
+    );
   }
 
   @UseGuards(RoleGuard)
@@ -107,10 +110,8 @@ export class CompaniesController {
   @ApiOperation({
     operationId: 'getCurrentCompanyUsers',
   })
-  getCurrentCompanyUsers(@Req() request: Request) {
-    const userId = request['user'].user_id;
-
-    return this.companiesService.getCompanyUsers(userId);
+  getCurrentCompanyUsers(@User() requestUser: RequestUserDto) {
+    return this.companiesService.getCompanyUsers(requestUser.user_id);
   }
 
   @UseGuards(RoleGuard)
@@ -121,12 +122,10 @@ export class CompaniesController {
     operationId: 'createCurrentCompanyUser',
   })
   createCurrentCompanyUser(
-    @Req() request: Request,
+    @User() requestUser: RequestUserDto,
     @Body() user: CreateCompanyUserDto,
   ) {
-    const requestUserId = request['user'].user_id;
-
-    return this.companiesService.createCompanyUser(user, requestUserId);
+    return this.companiesService.createCompanyUser(user, requestUser.user_id);
   }
 
   @UseGuards(RoleGuard)
@@ -137,12 +136,10 @@ export class CompaniesController {
     operationId: 'deleteCurrentCompanyUser',
   })
   deleteCurrentCompanyUser(
-    @Req() request: Request,
+    @User() requestUser: RequestUserDto,
     @Param('userId') userId: string,
   ) {
-    const requestUserId = request['user'].user_id;
-
-    return this.companiesService.deleteCompanyUser(userId, requestUserId);
+    return this.companiesService.deleteCompanyUser(userId, requestUser.user_id);
   }
 
   @UseGuards(RoleGuard)
@@ -152,10 +149,8 @@ export class CompaniesController {
   @ApiOperation({
     operationId: 'getCurrentCompanyPaymentDetails',
   })
-  getCurrentPaymentDetails(@Req() request: Request) {
-    const userId = request['user'].user_id;
-
-    return this.companiesService.findPaymentDetails(userId);
+  getCurrentPaymentDetails(@User() requestUser: RequestUserDto) {
+    return this.companiesService.findPaymentDetails(requestUser.user_id);
   }
 
   @UseGuards(RoleGuard)
@@ -166,12 +161,13 @@ export class CompaniesController {
     operationId: 'createCurrentCompanyPaymentDetails',
   })
   createCurrentPaymentDetails(
-    @Req() request: Request,
+    @User() requestUser: RequestUserDto,
     @Body(new ValidationPipe()) paymentDetails: CreatePaymentDetailsDto,
   ) {
-    const userId = request['user'].user_id;
-
-    return this.companiesService.createPaymentDetails(paymentDetails, userId);
+    return this.companiesService.createPaymentDetails(
+      paymentDetails,
+      requestUser.user_id,
+    );
   }
 
   @UseGuards(RoleGuard)
@@ -182,11 +178,12 @@ export class CompaniesController {
     operationId: 'updateCurrentCompanyPaymentDetails',
   })
   updateCurrentCompanyPaymentDetails(
-    @Req() request: Request,
+    @User() requestUser: RequestUserDto,
     @Body(new ValidationPipe()) paymentDetails: UpdatePaymentDetailsDto,
   ) {
-    const userId = request['user'].user_id;
-
-    return this.companiesService.updatePaymentDetails(paymentDetails, userId);
+    return this.companiesService.updatePaymentDetails(
+      paymentDetails,
+      requestUser.user_id,
+    );
   }
 }

@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
 import { ExtractJwt, Strategy } from 'passport-jwt';
+import { RequestUserDto } from '../users/dto/request-user.dto';
 
 @Injectable()
 export class AuthStrategy extends PassportStrategy(Strategy) {
@@ -34,10 +35,6 @@ export class AuthStrategy extends PassportStrategy(Strategy) {
   }
 
   validate(payload: any) {
-    return {
-      user_id: payload.user_id,
-      email: payload.email,
-      roles: payload.roles,
-    };
+    return new RequestUserDto(payload);
   }
 }

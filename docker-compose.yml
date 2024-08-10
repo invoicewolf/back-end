@@ -34,10 +34,11 @@ services:
       - ./backend-data:/usr/backend-data
     ports:
       - '0.0.0.0:${API_HTTP_PORT}:80'
-      - '0.0.0.0:${API_HTTPS_PORT}:443'
     links:
       - invoicewolf-database
       - invoicewolf-logs
     depends_on:
-      - invoicewolf-database
-      - invoicewolf-logs
+      invoicewolf-database:
+        condition: service_started
+      invoicewolf-logs:
+        condition: service_started
