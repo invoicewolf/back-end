@@ -25,7 +25,7 @@ services:
       - ./databases/elasticsearch-data:/usr/share/elasticsearch/data
     healthcheck:
       test: curl -s http://invoicewolf-logs:9200 >/dev/null || exit 1
-      interval: 30s
+      interval: 10s
       timeout: 10s
       retries: 50
 
