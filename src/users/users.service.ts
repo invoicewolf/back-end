@@ -82,4 +82,10 @@ export class UsersService {
 
     return { user: user, company: companyUser?.company ?? {} };
   }
+
+  async emailExists(email: string) {
+    return this.prisma.user.count({
+      where: { email: email },
+    });
+  }
 }

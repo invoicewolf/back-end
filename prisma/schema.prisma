@@ -34,7 +34,7 @@ model User {
   id          String        @id @unique
   firstName   String
   lastName    String
-  email       String
+  email       String        @unique
   CompanyUser CompanyUser[]
 }
 

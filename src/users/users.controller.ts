@@ -3,6 +3,7 @@ import {
   Controller,
   Delete,
   Get,
+  Param,
   Post,
   Put,
   UseGuards,
@@ -25,7 +26,6 @@ import { User } from './user.decorator';
 import { UsersService } from './users.service';
 
 @ApiBearerAuth('jwt')
-@UseGuards(AuthGuard('jwt'))
 @ApiTags('users')
 @Controller('users')
 export class UsersController {
@@ -35,6 +35,7 @@ export class UsersController {
   ) {}
 
   @Post('/')
+  @UseGuards(AuthGuard('jwt'))
   @ApiOkResponse({ type: UserDto })
   @ApiOperation({
     operationId: 'createUser',
@@ -58,6 +59,7 @@ export class UsersController {
   }
 
   @Delete('/me')
+  @UseGuards(AuthGuard('jwt'))
   @ApiOkResponse({ type: UserDto })
   @ApiOperation({
     operationId: 'deleteCurrentUser',
@@ -69,6 +71,7 @@ export class UsersController {
   }
 
   @Put('/me')
+  @UseGuards(AuthGuard('jwt'))
   @ApiOkResponse({ type: UserDto })
   @ApiOperation({
     operationId: 'updateCurrentUser',
@@ -81,6 +84,7 @@ export class UsersController {
   }
 
   @Get('/me')
+  @UseGuards(AuthGuard('jwt'))
   @ApiOkResponse({ type: UserDto })
   @ApiOperation({
     operationId: 'getCurrentUser',
@@ -90,11 +94,21 @@ export class UsersController {
   }
 
   @Get('/me/profile')
+  @UseGuards(AuthGuard('jwt'))
   @ApiOkResponse({ type: ProfileDto })
   @ApiOperation({
     operationId: 'getCurrentUserProfile',
   })
   getProfile(@User() requestUser: RequestUserDto) {
     return this.usersService.getProfile(requestUser.user_id);
+  }
+
+  @Get(':email/exists')
+  @ApiOkResponse({ type: Boolean })
+  @ApiOperation({
+    operationId: 'getUserExistsByEmail',
+  })
+  async getUserExistsByEmail(@Param('email') email: string) {
+    return (await this.usersService.emailExists(email)) >= 1;
   }
 }
