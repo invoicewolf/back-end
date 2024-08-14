@@ -29,8 +29,6 @@ COPY --from=build /app/dist ./dist
 COPY --from=build /app/package*.json ./
 COPY --from=build /app/node_modules ./node_modules
 
-RUN ls -al
-
 CMD ["node", "dist/src/main.js"]
 
 EXPOSE 3000
