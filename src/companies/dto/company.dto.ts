@@ -1,10 +1,10 @@
-import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
+import { ApiProperty } from '@nestjs/swagger';
 import {
   IsEmail,
   IsNotEmpty,
   IsNumber,
-  IsOptional,
   IsString,
+  ValidateIf,
 } from 'class-validator';
 
 export class CompanyDto {
@@ -24,14 +24,14 @@ export class CompanyDto {
   @IsString()
   companyName: string;
 
-  @ApiPropertyOptional({ default: '93056589', nullable: true })
-  @IsOptional()
+  @ApiProperty({ default: '93056589', nullable: true })
   @IsString()
+  @ValidateIf((_, value) => value !== null)
   companyNumber: string | null;
 
-  @ApiPropertyOptional({ default: 'NL123456789B01', nullable: true })
-  @IsOptional()
+  @ApiProperty({ default: 'NL123456789B01', nullable: true })
   @IsString()
+  @ValidateIf((_, value) => value !== null)
   taxNumber: string | null;
 
   @ApiProperty({ default: 'Example Street' })
@@ -44,9 +44,9 @@ export class CompanyDto {
   @IsString()
   houseNumber: string;
 
-  @ApiPropertyOptional({ default: 'E', nullable: true })
-  @IsOptional()
+  @ApiProperty({ default: 'E', nullable: true })
   @IsString()
+  @ValidateIf((_, value) => value !== null)
   addition: string | null;
 
   @ApiProperty({ default: '1234AB' })
