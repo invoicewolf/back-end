@@ -1,0 +1,51 @@
+services:
+  invoicewolf-database:
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=postgres
+    container_name: invoicewolf-data
+    volumes:
+      - ./databases/postgresql-data:/var/lib/postgresql/data
+    ports:
+      - '127.0.0.1:5435:5432'
+
+  invoicewolf-logs:
+    image: elasticsearch:8.14.3
+    container_name: invoicewolf-logs
+    ports:
+      - "0.0.0.0:9200:9200"
+      - "127.0.0.1:9300:9300"
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=true
+      - ELASTIC_PASSWORD=${LOGS_PASSWORD}
+      - ES_JAVA_OPTS=-Xms1024m -Xmx1024m
+    volumes:
+      - ./databases/elasticsearch-data:/usr/share/elasticsearch/data
+    healthcheck:
+      test: curl -s http://invoicewolf-logs:9200 >/dev/null || exit 1
+      interval: 10s
+      timeout: 10s
+      retries: 50
+
+  invoicewolf-backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    restart: no
+    env_file: ./.env.docker
+    container_name: invoicewolf-backend
+    volumes:
+      - ./backend-data:/usr/backend-data
+      - ./:/app
+    ports:
+      - '0.0.0.0:${API_HTTP_PORT}:80'
+    links:
+      - invoicewolf-database
+      - invoicewolf-logs
+    depends_on:
+      invoicewolf-database:
+        condition: service_started
+      invoicewolf-logs:
+        condition: service_healthy

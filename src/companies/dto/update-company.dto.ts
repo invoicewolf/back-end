@@ -1,5 +1,5 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import { IsEmail, IsNotEmpty, IsString } from 'class-validator';
+import { IsEmail, IsNotEmpty, IsOptional, IsString } from 'class-validator';
 
 export class UpdateCompanyDto {
   @ApiProperty({ default: 'admin@example.com' })
@@ -12,13 +12,15 @@ export class UpdateCompanyDto {
   @IsString()
   companyName: string;
 
-  @ApiPropertyOptional({ default: '93056589' })
+  @ApiPropertyOptional({ default: '93056589', nullable: true })
+  @IsOptional()
   @IsString()
-  companyNumber?: string;
+  companyNumber: string | null;
 
-  @ApiPropertyOptional({ default: 'NL123456789B01' })
+  @ApiPropertyOptional({ default: 'NL123456789B01', nullable: true })
+  @IsOptional()
   @IsString()
-  taxNumber?: string;
+  taxNumber: string | null;
 
   @ApiProperty({ default: 'Example Street' })
   @IsNotEmpty()
@@ -30,8 +32,10 @@ export class UpdateCompanyDto {
   @IsString()
   houseNumber: string;
 
-  @ApiPropertyOptional({ default: 'E' })
-  addition?: string;
+  @ApiPropertyOptional({ default: 'E', nullable: true })
+  @IsOptional()
+  @IsString()
+  addition: string | null;
 
   @ApiProperty({ default: '1234AB' })
   @IsNotEmpty()
