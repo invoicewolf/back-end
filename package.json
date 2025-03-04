@@ -35,7 +35,7 @@
     "@nestjs/swagger": "^7.4.0",
     "@prisma/client": "5.17.0",
     "@speakbox/nestjs-firebase-admin": "^3.1.0",
-    "express": "^4.19.2",
+    "express": "^4.20.0",
     "firebase-admin": "^12.3.1",
     "iban-ts": "^0.4.0",
     "jwks-rsa": "^3.1.0",
