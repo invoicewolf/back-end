@@ -10,6 +10,7 @@ import { AuthStrategy } from './auth/auth.strategy';
 import { PrismaService } from './prisma/prisma.service';
 import { UsersModule } from './users/users.module';
 import { CompaniesModule } from './companies/companies.module';
+import { InvoiceModule } from './invoice/invoice.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { CompaniesModule } from './companies/companies.module';
     FirebaseModule,
     UsersModule,
     CompaniesModule,
+    InvoiceModule,
   ],
   controllers: [AppController],
   providers: [AppService, AuthStrategy, FirebaseService, PrismaService],

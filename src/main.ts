@@ -26,7 +26,9 @@ async function bootstrap() {
 
   await app.init();
 
-  await app.listen(80, '0.0.0.0');
+  const port = process.env.API_HTTP_PORT;
+
+  await app.listen(port, '0.0.0.0');
 }
 
 bootstrap();

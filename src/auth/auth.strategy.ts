@@ -25,7 +25,7 @@ export class AuthStrategy extends PassportStrategy(Strategy) {
 
         const secretOrKey = keys[kid];
         if (!secretOrKey) {
-          throw new Error('Key not found for kid: ' + kid);
+          done(new Error('Key not found for kid: ' + kid) as any, null); // WHY
         }
 
         done(null, secretOrKey);
