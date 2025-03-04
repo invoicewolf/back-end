@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="Invoice" xml:space="preserve">
+        <value>Factuur</value>
+    </data>
+    <data name="Regarding" xml:space="preserve">
+        <value>Betreft</value>
+    </data>
+    <data name="TermsAndConditions" xml:space="preserve">
+        <value>Voorwaarden</value>
+    </data>
+    <data name="AllPricesExcludeVAT" xml:space="preserve">
+        <value>Alle genoemde prijzen zijn exclusief BTW</value>
+    </data>
+    <data name="PaymentTerm" xml:space="preserve">
+        <value>De betalingstermijn is binnen {0} dagen na de factuurdatum ({1})</value>
+    </data>
+    <data name="PaymentTo" xml:space="preserve">
+        <value>Het bedrag dient overgemaakt te worden naar</value>
+    </data>
+    <data name="QuestionsOrRemarks" xml:space="preserve">
+        <value>Wanneer u vragen en/of opmerkingen heeft, kunt u contact opnemen met</value>
+    </data>
+    <data name="CompanyNumber" xml:space="preserve">
+        <value>KVK</value>
+    </data>
+    <data name="TaxNumber" xml:space="preserve">
+        <value>BTW</value>
+    </data>
+    <data name="Attention" xml:space="preserve">
+        <value>T.a.v</value>
+    </data>
+    <data name="Subject" xml:space="preserve">
+        <value>O.v.v</value>
+    </data>
+    <data name="Description" xml:space="preserve">
+        <value>Beschrijving</value>
+    </data>
+    <data name="Amount" xml:space="preserve">
+        <value>Aantal</value>
+    </data>
+    <data name="Tariff" xml:space="preserve">
+        <value>Tarief</value>
+    </data>
+    <data name="TaxRate" xml:space="preserve">
+        <value>BTW%</value>
+    </data>
+    <data name="Cost" xml:space="preserve">
+        <value>Bedrag</value>
+    </data>
+    <data name="Subtotal" xml:space="preserve">
+        <value>Subtotaal</value>
+    </data>
+    <data name="TaxAmount" xml:space="preserve">
+        <value>BTW bedrag</value>
+    </data>
+    <data name="TotalIncludingTax" xml:space="preserve">
+        <value>Totaal incl. BTW</value>
+    </data>
+</root>

@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{47442081-2CE4-4B2E-826B-AA2939E2A196}"
+	ProjectSection(SolutionItems) = preProject
+		Dockerfile = Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "infrastructure", "infrastructure", "{15A8349A-396C-4C9D-A8FE-EE71B3AB48CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Invoicewolf.Generator.Application", "src\Invoicewolf.Generator.Application\Invoicewolf.Generator.Application.csproj", "{57414823-CD1D-4A62-B629-2358AE29595E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Invoicewolf.Generator.WebAPI", "src\Invoicewolf.Generator.WebAPI\Invoicewolf.Generator.WebAPI.csproj", "{AA120BF6-EE50-4885-BF72-E570210B4CE2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "core", "core", "{A7377E2A-0827-4293-8B65-8F3CE2E23112}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Invoicewolf.Generator.Domain", "src\Invoicewolf.Generator.Domain\Invoicewolf.Generator.Domain.csproj", "{B480C7F7-821D-4F1B-9D2D-22CDFBF89F30}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Invoicewolf.Generator.Domain.Contracts", "src\Invoicewolf.Generator.Domain.Contracts\Invoicewolf.Generator.Domain.Contracts.csproj", "{34D61C4F-9B78-4A71-872F-4087224BB4C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Invoicewolf.Generator.Localization", "src\Invoicewolf.Generator.Localization\Invoicewolf.Generator.Localization.csproj", "{DF0E7216-3B14-4D84-B7A1-3A20897D8AC5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{57414823-CD1D-4A62-B629-2358AE29595E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57414823-CD1D-4A62-B629-2358AE29595E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57414823-CD1D-4A62-B629-2358AE29595E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57414823-CD1D-4A62-B629-2358AE29595E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA120BF6-EE50-4885-BF72-E570210B4CE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA120BF6-EE50-4885-BF72-E570210B4CE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA120BF6-EE50-4885-BF72-E570210B4CE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA120BF6-EE50-4885-BF72-E570210B4CE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B480C7F7-821D-4F1B-9D2D-22CDFBF89F30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B480C7F7-821D-4F1B-9D2D-22CDFBF89F30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B480C7F7-821D-4F1B-9D2D-22CDFBF89F30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B480C7F7-821D-4F1B-9D2D-22CDFBF89F30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34D61C4F-9B78-4A71-872F-4087224BB4C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34D61C4F-9B78-4A71-872F-4087224BB4C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34D61C4F-9B78-4A71-872F-4087224BB4C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34D61C4F-9B78-4A71-872F-4087224BB4C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF0E7216-3B14-4D84-B7A1-3A20897D8AC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF0E7216-3B14-4D84-B7A1-3A20897D8AC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF0E7216-3B14-4D84-B7A1-3A20897D8AC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF0E7216-3B14-4D84-B7A1-3A20897D8AC5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AA120BF6-EE50-4885-BF72-E570210B4CE2} = {15A8349A-396C-4C9D-A8FE-EE71B3AB48CF}
+		{B480C7F7-821D-4F1B-9D2D-22CDFBF89F30} = {A7377E2A-0827-4293-8B65-8F3CE2E23112}
+		{34D61C4F-9B78-4A71-872F-4087224BB4C6} = {A7377E2A-0827-4293-8B65-8F3CE2E23112}
+		{DF0E7216-3B14-4D84-B7A1-3A20897D8AC5} = {15A8349A-396C-4C9D-A8FE-EE71B3AB48CF}
+	EndGlobalSection
+EndGlobal

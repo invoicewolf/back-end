@@ -1,0 +1,6 @@
+﻿services:
+  invoicewolf.generator.application:
+    image: invoicewolf.generator.application
+    build:
+      context: .
+      dockerfile: src/Invoicewolf.Generator.Application/Dockerfile

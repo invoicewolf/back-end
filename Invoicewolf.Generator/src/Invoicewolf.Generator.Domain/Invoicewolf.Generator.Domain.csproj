@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <RootNamespace>InvoiceWolf.Generator.Domain</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Extensions.Localization.Abstractions" Version="9.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.0" />
+        <PackageReference Include="QuestPDF" Version="2024.10.1"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Invoicewolf.Generator.Domain.Contracts\Invoicewolf.Generator.Domain.Contracts.csproj" />
+        <ProjectReference Include="..\Invoicewolf.Generator.Localization\Invoicewolf.Generator.Localization.csproj" />
+    </ItemGroup>
+
+</Project>

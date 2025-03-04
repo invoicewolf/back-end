@@ -6,7 +6,7 @@ services:
       - POSTGRES_PASSWORD=postgres
     container_name: invoicewolf-data
     volumes:
-      - ./databases/postgresql-data:/var/lib/postgresql/data
+      - ./Invoicewolf.Backend/databases/postgresql-data:/var/lib/postgresql/data
     ports:
       - '127.0.0.1:5435:5432'
 
@@ -22,7 +22,7 @@ services:
       - ELASTIC_PASSWORD=${LOGS_PASSWORD}
       - ES_JAVA_OPTS=-Xms1024m -Xmx1024m
     volumes:
-      - ./databases/elasticsearch-data:/usr/share/elasticsearch/data
+      - ./Invoicewolf.Backend/databases/elasticsearch-data:/usr/share/elasticsearch/data
     healthcheck:
       test: curl -s http://invoicewolf-logs:9200 >/dev/null || exit 1
       interval: 10s
@@ -31,7 +31,7 @@ services:
 
   invoicewolf-backend:
     build:
-      context: .
+      context: ./Invoicewolf.Backend/
       dockerfile: Dockerfile
     restart: no
     env_file: ./.env.docker
@@ -39,12 +39,25 @@ services:
     volumes:
       - ./backend-data:/usr/backend-data
     ports:
-      - '0.0.0.0:${API_HTTP_PORT}:80'
+      - '0.0.0.0:${BACKEND_HTTP_PORT}:${API_HTTP_PORT}'
     links:
       - invoicewolf-database
       - invoicewolf-logs
+      - invoicewolf-generator
     depends_on:
       invoicewolf-database:
         condition: service_started
       invoicewolf-logs:
         condition: service_healthy
+      invoicewolf-generator:
+        condition: service_started
+
+  invoicewolf-generator:
+    build:
+      context: ./Invoicewolf.Generator
+      dockerfile: Dockerfile
+    restart: no
+    env_file: ./.env.docker
+    container_name: invoicewolf-generator
+    ports:
+      - '127.0.0.1:${GENERATOR_HTTP_PORT}:8080'

@@ -1,0 +1,34 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=7020124F_002D9FFC_002D4AC3_002D8F3D_002DAAB8E0240759_002Ff_003AFonts_002Ecs_002Fl_003A_002E_002E_003F_002E_002E_003F_002E_002E_003F_002E_002E_003FLibrary_003FApplication_0020Support_003FJetBrains_003FRider2024_002E3_003Fresharper_002Dhost_003FSourcesCache_003Ffbaf9ca3a669d4ec448a66aa8af73a259add32ff464d65d3b83bcbb6618fe_003FFonts_002Ecs/@EntryIndexedValue">ForceIncluded</s:String>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=core_002FInvoicewolf_002EGenerator_002EDomain_002FResources_002FGeneratePdf_002Ecs_002DLatn_002Dnl_005FNL/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=core_002FInvoicewolf_002EGenerator_002EDomain_002FResources_002FGeneratePdf_002Ecs_002DLatn_002Dnl_005FNL/@EntryIndexRemoved">True</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=infrastructure_002FInvoicewolf_002EGenerator_002ELocalization_002FInvoiceGenerator_002Een_005Fgb/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=infrastructure_002FInvoicewolf_002EGenerator_002ELocalization_002FInvoiceGenerator_002Een_005Fgb/@EntryIndexRemoved">True</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=infrastructure_002FInvoicewolf_002EGenerator_002ELocalization_002FInvoiceGenerator_002Enl_005Fnl/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=infrastructure_002FInvoicewolf_002EGenerator_002ELocalization_002FInvoiceGenerator_002Enl_005Fnl/@EntryIndexRemoved">True</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=infrastructure_002FInvoicewolf_002EGenerator_002ELocalization_002FInvoices/@EntryIndexRemoved">True</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=infrastructure_002FInvoicewolf_002EGenerator_002ELocalization_002FInvoices_002Een_005Fus/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=infrastructure_002FInvoicewolf_002EGenerator_002ELocalization_002FInvoices_002Een_005Fus/@EntryIndexRemoved">True</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=infrastructure_002FInvoicewolf_002EGenerator_002ELocalization_002FInvoices/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=infrastructure_002FInvoicewolf_002EGenerator_002ELocalization_002FInvoices_002Enl_005Fnl/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=infrastructure_002FInvoicewolf_002EGenerator_002ELocalization_002FInvoices_002Enl_005Fnl/@EntryIndexRemoved">True</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=infrastructure_002FInvoicewolf_002EGenerator_002ELocalization_002FResources_002FInvoiceMessages/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=infrastructure_002FInvoicewolf_002EGenerator_002ELocalization_002FResources_002FInvoiceMessages/@EntryIndexRemoved">True</s:Boolean>
+	
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=infrastructure_002FInvoicewolf_002EGenerator_002ELocalization_002FResources_002FInvoices/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=infrastructure_002FInvoicewolf_002EGenerator_002ELocalization_002FResources_002FInvoices/@EntryIndexRemoved">True</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=infrastructure_002FInvoicewolf_002EGenerator_002ELocalization_002FResources_002FMessages_002FInvoiceMessages/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=infrastructure_002FInvoicewolf_002EGenerator_002ELocalization_002FResources_002FShared_002EInvoiceMessages/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=infrastructure_002FInvoicewolf_002EGenerator_002ELocalization_002FResources_002FShared_002EInvoiceMessages/@EntryIndexRemoved">True</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=infrastructure_002FInvoicewolf_002EGenerator_002ELocalization_002FResources_002FShared_002EInvoices/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=infrastructure_002FInvoicewolf_002EGenerator_002ELocalization_002FResources_002FShared_002EInvoices/@EntryIndexRemoved">True</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=infrastructure_002FInvoicewolf_002EGenerator_002ELocalization_002FShared_002FInvoices/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=infrastructure_002FInvoicewolf_002EGenerator_002ELocalization_002FShared_002FInvoices/@EntryIndexRemoved">True</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=Invoicewolf_002EGenerator_002EApplication_002FResources_002FInvoiceMessages/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=Invoicewolf_002EGenerator_002EApplication_002FResources_002FInvoiceMessages/@EntryIndexRemoved">True</s:Boolean>
+	<s:String x:Key="/Default/ResxEditorPersonal/DisabledLanguages/@EntryValue">en-nl,default-language</s:String>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/Initialized/@EntryValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/OrderByFullPath/@EntryValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/ShowComments/@EntryValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/ShowOnlyErrors/@EntryValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/ShowOnlyStringResources/@EntryValue">False</s:Boolean></wpf:ResourceDictionary>
